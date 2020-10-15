@@ -1,29 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import Useritem from "./Useritem";
-import axios from "axios";
+import Spinner from "../layout/Spinner";
 
-class Users extends Component {
-  state = {
-    users: [],
-    loading: false,
-  };
-  async componentDidMount() {
-    this.setState({ loading: true });
-    const res = await axios.get("https://api.github.com/users");
-
-    this.setState({ users: res.data, loading: false });
-  }
-
-  render() {
+const Users = ({ users, loading }) => {
+  if (loading) {
+    return <Spinner />;
+  } else {
     return (
       <div style={userStyle}>
-        {this.state.users.map((user) => (
-          <Useritem key={user.id} user={user} />
-        ))}
+        {users.map((user) => {
+          return <Useritem key={user.id} user={user} />;
+        })}
       </div>
     );
   }
-}
+};
 
 const userStyle = {
   display: "grid",
