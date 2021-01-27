@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+clone this project to your pc then in a terminal or command prompt run npm start. NB: make sure you are in the project folder  😉
 
 ## Available Scripts
 
